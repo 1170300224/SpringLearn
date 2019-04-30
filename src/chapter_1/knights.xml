@@ -2,8 +2,14 @@
 <beans	
 	xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-		
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+						http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	>
+	
 	<bean id="knight" class = "chapter_1.BraveKnight">
 		<constructor-arg ref="quest" />
 	</bean>
@@ -12,4 +18,22 @@
 		<constructor-arg value="#{T(System).out}" />
 	</bean>
 	
+	<bean id='minstrel' class="chapter_1.Minstrel">
+		<constructor-arg value="#{T(System).out}"></constructor-arg>
+	</bean>
+	
+	<aop:config>
+		<aop:aspect ref="minstrel">
+			<aop:pointcut id="embark"
+				expression="execution(* *.embarkOnQuest(..))" />
+			
+			<aop:before pointcut-ref="embark"
+				method="singBeforeQuest" />
+				
+			<aop:after pointcut-ref="embark"
+				method="singAfterQuest" />
+				
+		</aop:aspect>
+	</aop:config>
+
 </beans>

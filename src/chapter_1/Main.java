@@ -7,7 +7,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{	
-		AnnotationConfigApplicationContext context = getJavaConfigContext();
+		ClassPathXmlApplicationContext context = getXmlContext();
 		Knight knight = context.getBean(Knight.class);
 		knight.embarkOnQuest();
 		
@@ -16,10 +16,10 @@ public class Main
 	
 	public static ClassPathXmlApplicationContext getXmlContext()
 	{
-		ClassPathXmlApplicationContext context = 
-				new ClassPathXmlApplicationContext(
-						"chapter_1/knights.xml");
-		return context;
+			ClassPathXmlApplicationContext context = 
+					new ClassPathXmlApplicationContext(
+							"chapter_1/knights.xml");
+			return context;
 	}
 	
 	public static AnnotationConfigApplicationContext getJavaConfigContext()

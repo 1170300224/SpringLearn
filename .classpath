@@ -9,5 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring4.6.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Apache_commons_logging"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring_assist"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
